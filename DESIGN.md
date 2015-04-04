@@ -1,7 +1,7 @@
 # Seed
 
 1. Either node initializes a [Sync Request](#syncRequest)
-2. Originator
+2. Originator creates session id
 3. three
 
 # Interfaces
