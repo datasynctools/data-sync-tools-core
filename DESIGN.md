@@ -15,6 +15,13 @@ public class SyncSession {
 }
 ```
 
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| test |
+| zebra stripes | are neat        |    $1 |
+
 
 Node A  | Node B
 ------------- | -------------
