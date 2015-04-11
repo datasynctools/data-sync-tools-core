@@ -12,8 +12,16 @@
 
 | Phase  | Activities   |
 | :----- |:------------ |
-| Begin Seed | **A (Sender)** A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
-| Calculate Pair| Calculate Pair Name from Seed Request |
+| Begin Seed | **A (Sender):** A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
+| Calculate Pair | Calculate Pair Name from Seed Request |
+| Get Config | 
+1. Determine the the configuration bootstrap
+2. Send message Seed Configuration Request
+3. Receive message Seed Configuration Response
+1. Validation that no active sessions are underway for the pair locally
+2. Send Validate No Active Session Request
+5. Validation that no active sessions are underway for the pair remotely
+|
 
 # Interfaces
 
