@@ -11,6 +11,7 @@
 ### Sync (Main Flow)
 
 | Phase  | Activities   |
+| :----- |:------------ |
 | Begin Seed | A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
 | Calculate Pair| Calculate Pair Name from Seed Request |
 
