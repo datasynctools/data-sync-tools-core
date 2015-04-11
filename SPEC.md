@@ -25,7 +25,7 @@
 
 | Phase  | Activities   |
 | :----- |:------------ |
-| Syncing (Normal Flow) | _**A Sender**_ <br>For Each Sync State Table { <br><br> wait until we’re sure that the other side is ready to process the same table as me <br><br> For Each Sync State Table Record by Table { <br><br> 1. Read Local Sync State (Normal) (todo: this needs to be scalable to millions of records, using database cursors or other such technique.) <br> 2. Translate data message format for storage format to transmission format, if different (see table sync_node / field “Sync Data Persist Form” and table sync_node / field “Sync Data Trans Form”) <br> 3. Apply messages data format, message security policy (see table sync_node / field “Sync Msg Trans Form” and table sync_node / field “Sync Msg Sec Pol”) <br> 4. Continue reading local sync state until a message batch size is reached, a loop (see e table sync_node / field “In Msg Batch Size” / field “Max Out Msg Batch Size”) <br>5. Mark the local table sync_peer_state with field Sent Sync to 1 <br>6. Send the message batch to peer (see sync data change batch request) <br><br> _**B Receiver**_ <br> 1. Receive message batch on peer, apply message security policy to access the message, and apply message data format to native format conversion <br> 2. Process sync on Peer <br><br> _Add Sync Request Process Check:_ <br><br> _Update Sync Request Process Check:_ <br><br> _Delete Sync Request Process Check:_ <br><br> _**B Sender**_ <br>Package up and send Response (see Seed Data Batch Response) <br><br> _**A Receiver**_ <br> 1. Receive Response <br> 2. Apply response batch to local table sync_peer_state <br><br> _Add Sync Response Process Check:_ <br><br>_Update Sync Response Process Check:_ <br><br> _Delete Sync Response Process Check:_
+| Syncing (Normal Flow) | _**A Sender**_ <br>For Each Sync State Table { <br><br> wait until we’re sure that the other side is ready to process the same table as me <br><br> For Each Sync State Table Record by Table { <br><br> 1. [Read Local Sync State (Normal)](#Read-Local-Sync-for-Sync-Normal) (todo: this needs to be scalable to millions of records, using database cursors or other such technique.) <br> 2. Translate data message format for storage format to transmission format, if different (see table sync_node / field “Sync Data Persist Form” and table sync_node / field “Sync Data Trans Form”) <br> 3. Apply messages data format, message security policy (see table sync_node / field “Sync Msg Trans Form” and table sync_node / field “Sync Msg Sec Pol”) <br> 4. Continue reading local sync state until a message batch size is reached, a loop (see e table sync_node / field “In Msg Batch Size” / field “Max Out Msg Batch Size”) <br>5. Mark the local table sync_peer_state with field Sent Sync to 1 <br>6. Send the message batch to peer (see sync data change batch request) <br><br> _**B Receiver**_ <br> 1. Receive message batch on peer, apply message security policy to access the message, and apply message data format to native format conversion <br> 2. Process sync on Peer <br><br> _Add Sync Request Process Check:_ <br><br> _Update Sync Request Process Check:_ <br><br> _Delete Sync Request Process Check:_ <br><br> _**B Sender**_ <br>Package up and send Response (see Seed Data Batch Response) <br><br> _**A Receiver**_ <br> 1. Receive Response <br> 2. Apply response batch to local table sync_peer_state <br><br> _Add Sync Response Process Check:_ <br><br>_Update Sync Response Process Check:_ <br><br> _Delete Sync Response Process Check:_
 
 # Algorithms
 ## Management and Error Recovery Algorithms
@@ -34,7 +34,7 @@ Used in: [Sync (Main Flow) • Heart Beats](#Heart-Beats)
 
 # Messages
 
-## Seed Messages
+## Management and Error Recovery Algorithms
 
 ### <a name="Seed-Configuration-Request"> Seed Configuration Request
 Used in: [Sync (Main Flow) • Get Config](#Get-Config)
@@ -67,6 +67,21 @@ Used in: [Sync (Main Flow) • Block if Existing Session](#Block-if-Existing-Ses
 | Pair Name | String | False | True |
 | Client Provided Id | String | False | False |
 | Msg Type | Integer | False | True |
+
+## Sync Messages
+
+### <a name="Read-Local-Sync-for-Sync-Normal">Read Local Sync for Sync (Normal)
+
+| Name | Value | Notes |
+| ---- | ----- | ----- |
+| Entity Id | ${entityId} | |
+| Record Id | ${recordId} | |
+| Record Hash | ${recordHash} | |
+| Record Data | ${recordData} | |
+| Status | ${status} | |
+| Peer Last Known Hash | ${peerLastKnownHash} | |
+| Is Delete | ${isDelete} | |
+| Last Updated | ${lastUpdated} | |
 
 -
 -
