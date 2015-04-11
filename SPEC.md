@@ -72,6 +72,8 @@ Used in: [Sync (Main Flow) • Block if Existing Session](#Block-if-Existing-Ses
 
 ### <a name="Read-Local-Sync-for-Sync-Normal">Read Local Sync for Sync (Normal)
 
+Used in: [Sync Normal Flow](#Sync-Normal-Flow)
+
 | Name | Value | Notes |
 | ---- | ----- | ----- |
 | Entity Id | ${entityId} | |
@@ -83,6 +85,22 @@ Used in: [Sync (Main Flow) • Block if Existing Session](#Block-if-Existing-Ses
 | Is Delete | ${isDelete} | |
 | Last Updated | ${lastUpdated} | |
 
+# Tables
+
+## <a name="table-sync_node">sync_node
+
+| Name | Type | Length | Notes |
+| ---- | ---- | ------ | ----- |
+| Node Id | String | | |
+| Node Name | String | | |
+| Enabled | Boolean | | |
+| Data Msg Cons Uri | String | | |
+| Data Msg Prod Uri | String | | |
+| Mgmt Msg Cons Uri | String | | |
+| Mgmt Msg Prod Uri | String | | |
+| Sync Data Persist Form | String | | |
+| In Msg Batch Size | String | | |
+| Max Out Msg Batch Size | String | | |
 -
 -
 -
