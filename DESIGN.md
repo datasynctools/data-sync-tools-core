@@ -1,8 +1,18 @@
-# Seed
 
+# Commands
+## Seed
 1. Either node initializes a [Sync Request](#syncRequest)
 2. Originator creates session id
 3. three
+## Sync Commands
+### Sync (Main Flow)
+Phase: Begin Seed 
+A Start Sync Request from either A or B (assume “A” is the requestor for this example)
+
+B. Phase: Calculate Pair 
+Calculate Pair Name from Seed Request
+
+C> 
 
 # Interfaces
 
