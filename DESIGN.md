@@ -15,15 +15,17 @@ _italic_
 | :----- |:------------ |
 | Begin Seed | _**A Sender**_ -> A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
 | Calculate Pair | **A (Sender):** Calculate Pair Name from Seed Request |
-| Get Config <a name="05618054-ADF4-4170-A2AB-C45B36F6AFE7"> | _**A Sender**_ 1. Determine the the configuration bootstrap. 2. Send message [Seed Configuration Request](#DA4C78FF-4211-464E-8C78-6B099F87E55C). 3. Receive message Seed Configuration Response. 
+| <a name="05618054-ADF4-4170-A2AB-C45B36F6AFE7"> Get Config | _**A Sender**_ 1. Determine the the configuration bootstrap. 2. Send message [Seed Configuration Request](#DA4C78FF-4211-464E-8C78-6B099F87E55C). 3. Receive message Seed Configuration Response. 
 | Block if Existing Session | _**A Sender**_ 1. Validation that no active sessions are underway for the pair locally. 2. Send Validate No Active Session Request. _**B Receiver**_ 3. Validation that no active sessions are underway on for the pair locally. 4. Send Validate No Active Session Response _**A Sender**_ 5. Validation that no active sessions are underway for the pair remotely
 | Create Session | _**A Sender**_ 1. Session id is created. 2. Persist session id locally. 3. Send Session Start Request _**B Receiver**_ 4. Persist session id locally. 5. Send Session Start Response (start “Check if Seeded”). _**A Sender**_ 6. Receive Session Start Response 
-| Heart Beats | See algorithm [Heart Beat Checker](#CCF35108-AACD-46A0-9364-BAFD022D38DE) |
+| <a name="4910908C-63E1-46F5-BFFF-E69B62EBC714"> Heart Beats | See algorithm [Heart Beat Checker](#CCF35108-AACD-46A0-9364-BAFD022D38DE) |
 | Check if Seeded | _**A Sender**_ 1. Check if seeded (on both peers) 2. If NOT seeded on both peers, go to Phase Wait for Peer to Complete
 
 # Algorithms
 ## Management and Error Recovery Algorithms
-### Heart Beat Checker <a name="CCF35108-AACD-46A0-9364-BAFD022D38DE"> 
+### <a name="CCF35108-AACD-46A0-9364-BAFD022D38DE"> Heart Beat Checker 
+Used in: [Sync (Main Flow) • Heart Beats](#4910908C-63E1-46F5-BFFF-E69B62EBC714)
+
 --- finish me ---
 
 
