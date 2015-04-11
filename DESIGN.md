@@ -13,11 +13,12 @@ _italic_
 
 | Phase  | Activities   |
 | :----- |:------------ |
-| Begin Seed | _A Sender_ -> A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
+| Begin Seed | _**A Sender**_ -> A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
 | Calculate Pair | **A (Sender):** Calculate Pair Name from Seed Request |
-| Get Config | _**A (Sender):**_ 1. Determine the the configuration bootstrap. 2. Send message Seed Configuration Request. 3. Receive message Seed Configuration Response. 
-| Block if Existing Session | _**A (Sender):**_ 1. Validation that no active sessions are underway for the pair locally. 2. Send Validate No Active Session Request. _**B (Receiver):**_ 3. Validation that no active sessions are underway on for the pair locally. 4. Send Validate No Active Session Response _**A (Sender):**_ 5. Validation that no active sessions are underway for the pair remotely
-|
+| Get Config | _**A Sender**_ 1. Determine the the configuration bootstrap. 2. Send message Seed Configuration Request. 3. Receive message Seed Configuration Response. 
+| Block if Existing Session | _**A Sender**_ 1. Validation that no active sessions are underway for the pair locally. 2. Send Validate No Active Session Request. _**B Receiver**_ 3. Validation that no active sessions are underway on for the pair locally. 4. Send Validate No Active Session Response _**A Sender**_ 5. Validation that no active sessions are underway for the pair remotely
+| Create Session | _**A Sender**_ 1. Session id is created. 2. Persist session id locally. 3. Send Session Start Request _**B Receiver**_ 4. Persist session id locally. 5. Send Session Start Response (start “Check if Seeded”). _**A Sender**_ 6. Receive Session Start Response 
+
 
 # Interfaces
 
