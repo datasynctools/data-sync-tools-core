@@ -12,7 +12,7 @@
 
 | Phase  | Activities   |
 | :----- |:------------ |
-| Begin Seed | *A (Sender)* A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
+| Begin Seed | **A (Sender)** A Start Sync Request from either A or B (assume “A” is the requestor for this example) |
 | Calculate Pair| Calculate Pair Name from Seed Request |
 
 # Interfaces
