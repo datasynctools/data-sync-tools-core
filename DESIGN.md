@@ -15,9 +15,17 @@
 | Create Session | _**A Sender**_ 1. Session id is created. 2. Persist session id locally. 3. Send Session Start Request _**B Receiver**_ 4. Persist session id locally. 5. Send Session Start Response (start “Check if Seeded”). _**A Sender**_ 6. Receive Session Start Response 
 | <a name="Heart-Beats"> Heart Beats | See algorithm [Heart Beat Checker](#Heart-Beat-Checker) |
 | Check if Seeded | _**A Sender**_ 1. Check if seeded (on both peers) 2. If NOT seeded on both peers, go to Phase Wait for Peer to Complete
-| Syncing (Main) | Old Session Recovery Check -> Run algorithm Old Session Recovery Check, if it’s false continue. If it’s true, run Sync (Recovery Flow) and then go to Phase Wait for Peer to Complete. <br><br> First Time Check -> Run algorithm First Time Syncing Check, if it’s false continue. If it’s true, run Sync (First Time Flow) and and to go Phase Wait for Peer to Complete. <br><br> Normal Flow Check -> Run algorithm Normal Syncing Check, if it’s true, run Sync (Normal Flow) and then go to Phase Wait for Peer to Complete. If it’s false this is an unknown state. --- add unknown state error state --- |
+| Syncing (Main) | _Old Session Recovery Check:_ Run algorithm Old Session Recovery Check, if it’s false continue. If it’s true, run Sync (Recovery Flow) and then go to Phase Wait for Peer to Complete. <br><br> _First Time Check:_ Run algorithm First Time Syncing Check, if it’s false continue. If it’s true, run Sync (First Time Flow) and and to go Phase Wait for Peer to Complete. <br><br> _Normal Flow Check:_ Run algorithm Normal Syncing Check, if it’s true, run Sync (Normal Flow) and then go to Phase Wait for Peer to Complete. If it’s false this is an unknown state. --- add unknown state error state --- |
 | Wait for Peer to Complete | |
 | End Sync | |
+
+### Sync (Normal Flow)
+
+| Phase  | Activities   |
+| :----- |:------------ |
+| Syncing (Normal Flow) | _**A (Sender)**_ For Each Sync State Table { <br><br> wait until we’re sure that the other side is ready to process the same table as me <br><br> For Each Sync State Table Record by Table { <br><br> 1. Read Local Sync State (Normal) (todo: this needs to be scalable to millions of records, using database cursors or other such technique.)  2. Translate data message format for storage format to transmission format, if different (see table sync_node / field “Sync Data Persist Form” and table sync_node / field “Sync Data Trans Form”) 3. Apply messages data format, message security policy (see table sync_node / field “Sync Msg Trans Form” and table sync_node / field “Sync Msg Sec Pol”) 4. Continue reading local sync state until a message batch size is reached, a loop (see e table sync_node / field “In Msg Batch Size” / field “Max Out Msg Batch Size”)5. Mark the local table sync_peer_state with field Sent Sync to 1 6. Send the message batch to peer (see sync data change batch request) 
+
+
 
 # Algorithms
 ## Management and Error Recovery Algorithms
