@@ -25,6 +25,7 @@ _italic_
 
 ### Seed Configuration Request <a name="DA4C78FF-4211-464E-8C78-6B099F87E55C">
 Used in: [Sync (Main Flow) • Get Config](#05618054-ADF4-4170-A2AB-C45B36F6AFE7))
+
 | Name | Type | Repeating | Mandatory |
 | ---- | ---- | --------- | --------- |
 | Pair Name | String | False | True |
