@@ -4,6 +4,8 @@
 1. Either node initializes a [Sync Request](#syncRequest)
 2. Originator creates session id
 3. three
+ 
+
 ## Sync Commands
 ### Sync (Main Flow)
 Phase: Begin Seed 
