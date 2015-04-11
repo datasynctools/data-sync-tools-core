@@ -94,13 +94,54 @@ Used in: [Sync Normal Flow](#Sync-Normal-Flow)
 | Node Id | String | | |
 | Node Name | String | | |
 | Enabled | Boolean | | |
-| Data Msg Cons Uri | String | | |
-| Data Msg Prod Uri | String | | |
-| Mgmt Msg Cons Uri | String | | |
-| Mgmt Msg Prod Uri | String | | |
-| Sync Data Persist Form | String | | |
-| In Msg Batch Size | String | | |
-| Max Out Msg Batch Size | String | | |
+| Data Msg Cons Uri | String | | how the peer listens for data messages|
+| Data Msg Prod Uri | String | | how those that want to send data messages call this peer |
+| Mgmt Msg Cons Uri | String | | how the peer listens for management messages |
+| Mgmt Msg Prod Uri | String | | how those that want to send management messages call this peer  |
+| Sync Data Persist Form | String | | the format in which data messages will be persisted |
+| In Msg Batch Size | Integer | | Incoming Message Batch Size |
+| Max Out Msg Batch Size | Integer | | Maximum Outbound Message Batch Size |
+
+## <a name="table-sync_pair_nodes">sync_pair_nodes
+
+| Name | Type | Length | Notes |
+| ---- | ---- | ------ | ----- |
+| Pair Id | String | | |
+| Node Id | String | | |
+
+## <a name="table-sync_pair">sync_pair
+
+| Name | Type | Length | Notes |
+| ---- | ---- | ------ | ----- |
+| Pair Id | String | | |
+| Pair Name | String | | |
+| Max Ses Dur Value | String | | Max Session Duration Value |
+| Max Ses Dur Unit | String | | Seconds, Minutes, Hours, or Days |
+| Sync Data Trans Form | String | | The format in which data payload that will be transmitted |
+| Sync Msg Trans Form | String | | The format in which data messages will be transmitted |
+| Sync Msg Sec Pol | String | | The message security policy |
+
+## <a name="table-sync_state">sync_state
+
+| Name | Type | Length | Notes |
+| ---- | ---- | ------ | ----- |
+| Entity Id | String | | |
+| Record Id | String | | |
+| Record Hash | String | | |
+| Record Data | String | | |
+| Is Delete | Boolean | | |
+| Status | Integer | | 1-New, 2-seeded, 3-synced-not-change, 4-synced-changed-by-node |
+
+## <a name="table-sync_state">sync_state
+
+| Name | Type | Length | Notes |
+| ---- | ---- | ------ | ----- |
+| Peer Id | String | | |
+| Entity Id | String | | |
+| Record Id | String | | |
+| Peer Last Known Hash | String | | |
+| Is Delete | Boolean | | |
+| Sent Sync | Integer | | 1-sent-to-peer, 2-acked-by-peer, 3-changed-by-node, 4-conflict-not-resolved |
 -
 -
 -
