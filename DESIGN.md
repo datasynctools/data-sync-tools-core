@@ -34,13 +34,13 @@ Used in: [Sync (Main Flow) • Get Config](#05618054-ADF4-4170-A2AB-C45B36F6AFE7
 | Client Provided Id | String | False | False |
 | Msg Type | Integer | False | True |
 
-### <a name="1703A83D-7C2F-4EB8-BE63-781D9AD8ABC1"> Validate No Active Session Request
-Used in: [Sync (Main Flow) • Block if Existing Session](#FD0C10C7-0AE0-4F27-B6AC-AA18A5E9F4D4)
+### <a name="73ED374F-B6DE-4FD4-B77F-750FBF3BF511"> Seed Configuration Response
+Used in: [Sync (Main Flow) • Get Config](#05618054-ADF4-4170-A2AB-C45B36F6AFE7)
 
 --- finish me ---
 
-### <a name="73ED374F-B6DE-4FD4-B77F-750FBF3BF511"> Seed Configuration Response
-Used in: [Sync (Main Flow) • Get Config](#05618054-ADF4-4170-A2AB-C45B36F6AFE7)
+### <a name="1703A83D-7C2F-4EB8-BE63-781D9AD8ABC1"> Validate No Active Session Request
+Used in: [Sync (Main Flow) • Block if Existing Session](#FD0C10C7-0AE0-4F27-B6AC-AA18A5E9F4D4)
 
 --- finish me ---
 
@@ -49,3 +49,16 @@ Used in: [Sync (Main Flow) • Get Config](#05618054-ADF4-4170-A2AB-C45B36F6AFE7
 | Pair Name | String | False | True |
 | Client Provided Id | String | False | False |
 | Msg Type | Integer | False | True |
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
